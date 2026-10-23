@@ -7,3 +7,5 @@ target/
 data/
 *.mv.db
 *.trace.db
+
+src/main/resources/application-mysql.properties
