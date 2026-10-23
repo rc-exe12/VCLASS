@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<aside th:fragment="nav(user)" class="sidebar">
+
+    <a class="brand" th:href="@{/dashboard}">
+        <span class="brand-mark">V</span>
+        <span>
+            VClass
+            <small>VIRTUAL CLASSROOM</small>
+        </span>
+    </a>
+
+    <div class="side-label">WORKSPACE</div>
+
+    <nav class="nav-links">
+
+        <a th:href="@{/dashboard}"
+           th:classappend="${currentPage == 'dashboard'} ? ' active' : ''">
+            <span>⌂</span>Dashboard
+        </a>
+
+        <a th:href="@{/courses}"
+           th:classappend="${currentPage == 'courses'} ? ' active' : ''">
+            <span>▤</span>Courses
+        </a>
+
+        <a th:href="@{/assignments}"
+           th:classappend="${currentPage == 'assignments'} ? ' active' : ''">
+            <span>✓</span>Assignments
+        </a>
+
+        <a th:href="@{/attendance}"
+           th:classappend="${currentPage == 'attendance'} ? ' active' : ''">
+            <span>◷</span>Attendance
+        </a>
+
+        <a th:if="${user.role == 'TEACHER'}"
+           th:href="@{/students}"
+           th:classappend="${currentPage == 'students'} ? ' active' : ''">
+            <span>♙</span>Students
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <label class="side-label" for="themeSelect">
+            APPEARANCE
+        </label>
+
+        <select id="themeSelect" class="theme-select">
+            <option value="dark">Dark Glass</option>
+            <option value="light">Light</option>
+            <option value="system">System</option>
+        </select>
+
+        <div class="profile">
+
+            <span class="avatar"
+                  th:text="${#strings.substring(user.name,0,1).toUpperCase()}">
+                U
+            </span>
+
+            <span class="profile-name">
+                <b th:text="${user.name}">User</b>
+                <small th:text="${user.role}">STUDENT</small>
+            </span>
+
+            <a th:href="@{/logout}" class="logout">↪</a>
+
+        </div>
+
+    </div>
+
+</aside>
+
+</body>
+</html>
