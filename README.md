@@ -180,6 +180,15 @@ Tables are missing
 Confirm the connection points to `vclass_db`.
 Review Hibernate startup logs and the configured schema strategy.
 Verify the database user has the necessary permissions.
+
+
+
+
+
+
+
+
+
 Author
 Ramcharan Sai  
 B.Tech Computer Science and Engineering  
